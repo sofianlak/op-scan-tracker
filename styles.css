@@ -1,0 +1,31 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6f9; /* Light gray background for a modern feel */
+    color: #333; /* Default dark text outside the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    background: #2a2a3a; /* Warm dark gray with subtle depth */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    width: 90%;
+    max-width: 450px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #e4e9f2; /* Soft white for the heading text */
+}
+
+#chapter-date {
+    font-size: 1.2rem;
+    color: #b0b8d3; /* Default softer grayish blue for secondary text */
+}
