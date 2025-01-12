@@ -1,0 +1,41 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main  # This triggers the workflow on pushes to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Trigger for pull requests to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment (optional, depending on your project)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'  # Set your Node.js version here
+
+      # Install dependencies (optional, for Node.js apps)
+      - name: Install dependencies
+        run: npm install
+
+      # Build the project (if needed)
+      - name: Build the project
+        run: npm run build  # Replace with your build command if applicable
+
+      # Deploy to Netlify
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: './build'  # Replace with the directory that contains your built project
+          production-branch: 'main'  # Replace with your branch name
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}  # Store this token in GitHub Secrets
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}  # Store this ID in GitHub Secrets
