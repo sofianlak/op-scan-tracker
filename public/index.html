@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Next One Piece Chapter</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
     <script>
         async function fetchChapterDate() {
             try {
-                const response = await fetch('http://localhost:3000/api/next-chapter');
+                const response = await fetch('/api/next-chapter');
                 const data = await response.json();
                 if (data.success) {
                     document.getElementById('chapter-date').textContent = data.raw_date;
@@ -23,7 +23,7 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('chapter-date').textContent = 'Error fetching data';
+                document.getElementById('chapter-date').textContent = 'Error fetching date';
             }
         }
 
